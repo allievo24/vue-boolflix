@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <MyHeader @search="searching"/>
+   <MyHeader @search="ricerca"/>
    <MyMain :listaFilm ="listaFilm"/>
    
   </div>
