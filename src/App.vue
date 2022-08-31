@@ -1,14 +1,14 @@
 <template>
   <div id="app">
    <MyHeader @search="searching"/>
-   <MyMain/>
+   <MyMain :listaFilm ="listaFilm"/>
    
   </div>
 </template>
 
 <script>
-import MyHeader from './components/MyHeader';
-import MyMain from './components/MyMain';
+import MyHeader from './components/MyHeader.vue';
+import MyMain from './components/MyMain.vue';
 import axios from'axios';
 
 
@@ -18,11 +18,31 @@ export default {
     MyHeader,
     MyMain
   },
+  
+  data(){
+    return{
+      apilink :'https://api.themoviedb.org/3',
+      privateKey:'ed5299798d3d71d806d1feda5d373225',
+      lingua : 'it-IT',
+      listaFilm : []
+    
+    }
+  },
+
+  
+  
+  
   methods:{
     ricerca(cerca){
+      axios.get(this.apilink +'/search/movie?api_key='+ this.privateKey + '&language=' + this.lingua + '&query=' + cerca )
+       .then(rest =>{
+        this.listaFilm = rest.data.results;
+       })
+       
+       .catch(error =>{
+        console.log(error)
+       })
 
-
-      
     }
   }
 
@@ -35,6 +55,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~@fortawsome/fontawsome-free/css/all.css'
 
 </style>
