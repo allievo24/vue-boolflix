@@ -19,13 +19,12 @@ export default {
   },
   data() {
     return {
-      ita: "../assets/img/bd-italiana.jpg",
-      En: "../assets/img/united_kingdom.jpg",
+      bandiere:[en,it]
     };
   },
   methods: {
     lingua() {
-      if (this.film.original_language == this.En) {
+      if (this.film.original_language.includes(this.bandiera)) {
        
        this.film.original_language == "../assets/img/united_kingdom.jpg"
       
