@@ -1,34 +1,46 @@
 <template>
-   <div>
-     <ul>
-        <li> Titolo- titolo originale- voto- lingua</li>
-        <li v-for="(film, index) in listaFilm" :key="index">
-        {{film.title}}------{{film.original_title}}------{{film.vote_average}}-----{{film.original_language}}----{{film.overview}}
-        <img src="../assets/img/bd-italiana.jpg" alt=""/>
-     </li>
-     </ul>
-   </div>
-
+  <div>
+    <ul>
+      <li>Titolo- titolo originale- voto- lingua</li>
+      <li v-for="(film, index) in listaFilm" :key="index">
+        {{ film.title }}------{{ lingua}}------{{
+          film.vote_average}}-----{{ film.original_language }}----{{ film.overview }}
+       
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
-    nome:"MyMain",
-    props:{
-       listaFilm :Array 
-    },
-    data(){
-      return{
-         ita: "../assets/img/bd-italiana.jpg",
-         En: "../assets/img/united_kingdom.jpg"
+  nome: "MyMain",
+  props: {
+    listaFilm: Array,
+  },
+  data() {
+    return {
+      ita: "../assets/img/bd-italiana.jpg",
+      En: "../assets/img/united_kingdom.jpg",
+    };
+  },
+  methods: {
+    lingua() {
+      if (this.film.original_language == this.En) {
+       
+       this.film.original_language == "../assets/img/united_kingdom.jpg"
+      
+      } else{
+        
+        (this.film.original_language == "../assets/img/bd-italiana.jpg")
+
       }
-    }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss">
- li{
-   margin:2rem 0;
- }
-
+li {
+  margin: 2rem 0;
+}
 </style>
