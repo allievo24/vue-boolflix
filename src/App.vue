@@ -37,8 +37,10 @@ export default {
       axios.get(this.apilink +'/search/movie?api_key='+ this.privateKey + '&language=' + this.lingua + '&query=' + cerca )
        .then(rest =>{
         this.listaFilm = rest.data.results;
-       })
+         
        
+       })
+  
        .catch(error =>{
         console.log(error)
        })
