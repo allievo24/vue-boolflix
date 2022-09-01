@@ -4,7 +4,7 @@
       <li>Titolo- titolo originale- voto- lingua</li>
       <li v-for="(film, index) in listaFilm" :key="index">
         {{ film.title }}------{{ lingua}}------{{
-          film.vote_average}}-----{{ film.original_language }}----{{ film.overview }}
+          film.vote_average}}-----{{ lingua() }}----{{ film.overview }}
        
       </li>
     </ul>
@@ -19,12 +19,12 @@ export default {
   },
   data() {
     return {
-      bandiere:[en,it]
+      bandiere: ['en','it']
     };
   },
   methods: {
     lingua() {
-      if (this.film.original_language.includes(this.bandiera)) {
+      if (this.film.original_language.includes(this.bandiere )) {
        
        this.film.original_language == "../assets/img/united_kingdom.jpg"
       
@@ -33,6 +33,7 @@ export default {
         (this.film.original_language == "../assets/img/bd-italiana.jpg")
 
       }
+      return this.film.original_language
     },
   },
 };
