@@ -8,7 +8,7 @@
           <div class="flip-card-front">
             <img
               :src="'https://image.tmdb.org/t/p/w200/' + film.poster_path"
-              alt=""
+              :alt="'cover for '+film.title"
             />
           </div>
           <div class="flip-card-back">
@@ -20,7 +20,7 @@
               class="flag"
               v-if="bandiere.includes(film.original_language)"
               :src="require('../assets/img/' + film.original_language + '.jpg')"
-            />
+            alt=""/>
             <h3>  {{ film.vote_average }}</h3>
           
             <div class="trama">
@@ -37,7 +37,7 @@
           <div class="flip-card-front">
             <img
               :src="'https://image.tmdb.org/t/p/w200/' + film.poster_path"
-              alt=""
+              :alt="'cover for' +film.name"
             />
           </div>
           <div class="flip-card-back">
@@ -49,7 +49,7 @@
               class="flag"
               v-if="bandiere.includes(film.original_language)"
               :src="require('../assets/img/' + film.original_language + '.jpg')"
-            />
+               alt=/>
             {{ film.vote_average }}
             <div class="trama">
               {{ film.overview }}
@@ -82,8 +82,10 @@ export default {
 .serie {
    display:flex;
    flex-wrap: wrap;
-   border: solid 2px black;
-   h2{
+   background-color:lightgray ;
+   padding-left:1rem;
+   height: 100vh;
+h2{
      width: 100%;
    }
    
@@ -138,7 +140,7 @@ export default {
     
   
     .flag {
-       width: 10%;
+       width: 20%;
      }
      .trama{
       padding: 1rem;
