@@ -51,7 +51,7 @@
               v-if="bandiere.includes(film.original_language)"
               :src="require('../assets/img/' + film.original_language + '.jpg')"
                alt=/>
-            {{ film.vote_average }}
+             <h3>{{ film.vote_average }}</h3> 
             <i v-for=" n in 5" class="  fa-star" :class="(n>getVote(film.vote_average))?'fa-regular':'fa-solid'" :key="n"></i>
 
             <div class="trama">
@@ -116,6 +116,7 @@ h2{
     transition: transform 0.6s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    
   }
 
   .flip-card:hover .flip-card-inner {
@@ -148,6 +149,7 @@ h2{
   
     .flag {
        width: 20%;
+     
      }
      .trama{
       padding: 1rem;
