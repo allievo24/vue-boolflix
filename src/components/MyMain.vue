@@ -3,9 +3,15 @@
     <ul>
       <li>Titolo- titolo originale- voto- lingua</li>
       <li v-for="(film, index) in listaFilm" :key="index">
-        {{ film.title }}------{{ lingua}}------{{
-          film.vote_average}}-----{{ lingua() }}----{{ film.overview }}
+        {{ film.title }}------------
+        {{film.original_title}}
+        <!--integro bandiere con un v-bind -->
+        <img v-if="bandiere.includes(film.original_language)" :src=" '../assets/img/ '+film.original_language+'.jpg'" alt="poster film"/>
+        {{ film.original_language }}----
+        {{film.vote_average}}-----
+        {{ film.overview }}
        
+          
       </li>
     </ul>
   </div>
@@ -23,19 +29,10 @@ export default {
     };
   },
   methods: {
-    lingua() {
-      if (this.film.original_language.includes(this.bandiere )) {
-       
-       this.film.original_language == "../assets/img/united_kingdom.jpg"
+    
       
-      } else{
-        
-        (this.film.original_language == "../assets/img/bd-italiana.jpg")
-
-      }
-      return this.film.original_language
-    },
-  },
+    }
+  
 };
 </script>
 
