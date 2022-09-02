@@ -15,7 +15,7 @@
             <h3>{{ film.title }}</h3>
             <h3>{{ film.original_title }}</h3>
 
-            <!--integro bandiere con un v-bind -->
+            <!--integro bandiere con un v-bind e la require per poter ricuperare img da src   -->
             <img
               class="flag"
               v-if="bandiere.includes(film.original_language)"
