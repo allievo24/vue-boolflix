@@ -21,7 +21,8 @@
               v-if="bandiere.includes(film.original_language)"
               :src="require('../assets/img/' + film.original_language + '.jpg')"
             alt=""/>
-            <h3>  {{ film.vote_average }}</h3>
+            <h3>  {{ getVote(film.vote_average) }}</h3>
+            <i v-for=" n in 5" class="  fa-star" :class="(n>getVote(film.vote_average))?'fa-regular':'fa-solid'" :key="n"></i>
           
             <div class="trama">
               {{ film.overview }}
@@ -37,7 +38,7 @@
           <div class="flip-card-front">
             <img
               :src="'https://image.tmdb.org/t/p/w200/' + film.poster_path"
-              :alt="'cover for' +film.name"
+              :alt="'cover for  '+film.name"
             />
           </div>
           <div class="flip-card-back">
@@ -51,6 +52,8 @@
               :src="require('../assets/img/' + film.original_language + '.jpg')"
                alt=/>
             {{ film.vote_average }}
+            <i v-for=" n in 5" class="  fa-star" :class="(n>getVote(film.vote_average))?'fa-regular':'fa-solid'" :key="n"></i>
+
             <div class="trama">
               {{ film.overview }}
             </div>
@@ -73,7 +76,11 @@ export default {
       bandiere: ["en", "it"],
     };
   },
-  methods: {},
+  methods: {
+   getVote(average ){
+      return Math.ceil(average /2)
+   }
+  },
 };
 </script>
 
@@ -82,9 +89,9 @@ export default {
 .serie {
    display:flex;
    flex-wrap: wrap;
-   background-color:lightgray ;
+   background-color: rgb(97, 97, 97);
    padding-left:1rem;
-   height: 100vh;
+  // height: 50vh;
 h2{
      width: 100%;
    }
